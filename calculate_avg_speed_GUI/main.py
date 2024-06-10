@@ -43,3 +43,8 @@ class SpeedCalculator(QWidget):
             output = int(self.distance_line_edit.text()) / int(self.time_line_edit.text())
             self.output.setText(f"You were traveling at {str(round(output, 2))} miles per hour")
 
+
+app = QApplication(sys.argv)
+speed_calculator = SpeedCalculator()
+speed_calculator.show()
+sys.exit(app.exec())
