@@ -20,6 +20,7 @@ class SpeedCalculator(QWidget):
 
         button = QPushButton("Calculate")
         button.clicked.connect(self.calculate)
+        self.output = QLabel("")
 
         # Adding widgets
         grid.addWidget(distance_label, 0, 0)
@@ -34,4 +35,11 @@ class SpeedCalculator(QWidget):
         self.setLayout(grid)
 
     def calculate(self):
-        pass
+        if self.metric_button.currentText() == "Km":
+            output = int(self.distance_line_edit.text()) / int(self.time_line_edit.text())
+            self.output.setText(f"You were traveling at {str(round(output, 2))} Km per hour")
+
+        else:
+            output = int(self.distance_line_edit.text()) / int(self.time_line_edit.text())
+            self.output.setText(f"You were traveling at {str(round(output, 2))} miles per hour")
+
