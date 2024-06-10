@@ -5,6 +5,7 @@ from PyQt6.QtWidgets import QLabel, QApplication, QPushButton, QGridLayout, QWid
 class SpeedCalculator(QWidget):
     def __init__(self):
         super().__init__()
+        self.setWindowTitle("Speed Calculator")
 
         grid = QGridLayout()
 
@@ -17,7 +18,6 @@ class SpeedCalculator(QWidget):
         self.metric_button = QComboBox()
         self.metric_button.addItem("Km")
         self.metric_button.addItem("Miles")
-
         button = QPushButton("Calculate")
         button.clicked.connect(self.calculate)
         self.output = QLabel("")
